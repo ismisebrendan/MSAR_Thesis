@@ -228,6 +228,45 @@ ax[1].set_yticks([])
 
 ax[1].text(-1.6, -0.15, 'B', fontsize=15)
 
+#
+# Ellipse - point particle
+#
+fig, ax = plt.subplots()
+
+c = 1
+# Semi major axis
+a = 1.6
+b = np.sqrt(a**2 - c**2)
+
+z0 = -1.2
+
+t = np.linspace(0, 2*np.pi, 1000)
+ellipse_x = a * np.cos(t)
+ellipse_y = b * np.sin(t)
+
+
+
+plt.plot(ellipse_x, ellipse_y, color='black')
+plt.scatter(c, 0, color='black', s=10)
+plt.scatter(-c, 0, color='black', s=10)
+plt.scatter(0.2, 0.8, color='black', s=10)
+plt.text(c, 0, " $x$", va='bottom', ha='left')
+plt.text(-c, 0, " $x'$", va='bottom', ha='left')
+plt.text(0.2, 0.8, "$\\tilde{x}$", va='bottom', ha='left')
+
+
+plt.axis('equal')
+plt.xlim([-1.5, 1.5])
+plt.ylim([-1.5, 1.5])
+
+
+
+plt.xticks([])
+plt.yticks([])
+# plt.savefig('ellipse_pp.png', dpi=200)
+plt.show()
+
+
 fig.tight_layout()
 
 fig.savefig('cone_scattering.png')
